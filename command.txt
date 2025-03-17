@@ -1,0 +1,31 @@
+
+start-all.sh
+
+
+jps
+
+
+export HADOOP_CLASSPATH=$(hadoop classpath)
+
+
+hadoop fs -mkdir /GradeMapReduce_an
+hadoop fs -mkdir /GradeMapReduce_an/Input
+
+
+hadoop fs -put ./Input/Input.txt/ /GradeMapReduce_an/Input
+
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 export PATH=$JAVA_HOME/bin:$PATH
+
+
+javac -classpath $HADOOP_CLASSPATH -d GradeMapper.java GradeReducer.java 
+
+jar -cvf grademapreduce.jar -C . .
+
+jar tf grademapreduce.jar
+
+
+hadoop jar grademapreduce.jar GradeReduce/GradeMapReduce_an/Input /GradeMapReduce/Input/Output_new
+
+
+hadoop fs -cat /GradeMapReduce_an/Input/Output_new/part-r-00000
