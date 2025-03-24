@@ -1,0 +1,693 @@
+adoop@sahyadri:~/Desktop/4SF22IS012A$ start-all.sh
+WARNING: Attempting to start all Apache Hadoop daemons as hadoop in 10 seconds.
+WARNING: This is not a recommended production deployment configuration.
+WARNING: Use CTRL-C to abort.
+Starting namenodes on [localhost]
+localhost: namenode is running as process 6583.  Stop it first and ensure /tmp/hadoop-hadoop-namenode.pid file is empty before retry.
+Starting datanodes
+localhost: datanode is running as process 6786.  Stop it first and ensure /tmp/hadoop-hadoop-datanode.pid file is empty before retry.
+Starting secondary namenodes [sahyadri]
+sahyadri: secondarynamenode is running as process 7022.  Stop it first and ensure /tmp/hadoop-hadoop-secondarynamenode.pid file is empty before retry.
+Starting resourcemanager
+resourcemanager is running as process 7294.  Stop it first and ensure /tmp/hadoop-hadoop-resourcemanager.pid file is empty before retry.
+Starting nodemanagers
+localhost: nodemanager is running as process 7642.  Stop it first and ensure /tmp/hadoop-hadoop-nodemanager.pid file is empty before retry.
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ jps
+6786 DataNode
+15957 Jps
+6583 NameNode
+7642 NodeManager
+7022 SecondaryNameNode
+7294 ResourceManager
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ explort hadoop classpath =$(hadoop classpath)
+explort: command not found
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ export HADOOP_CLASSPATH=$(hadoop classpath)
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -mkdir /MaxTemperature_a
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -mkdir /MaxTemperature_a/Input
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -put Input.txt /MaxTemperature_a/Input/
+put: `Input.txt': No such file or directory
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs .put/Input/Input.txt/ /MaxTemperature_a/Input
+.put/Input/Input.txt/: Unknown command
+Usage: hadoop fs [generic options]
+	[-appendToFile [-n] <localsrc> ... <dst>]
+	[-cat [-ignoreCrc] <src> ...]
+	[-checksum [-v] <src> ...]
+	[-chgrp [-R] GROUP PATH...]
+	[-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+	[-chown [-R] [OWNER][:[GROUP]] PATH...]
+	[-concat <target path> <src path> <src path> ...]
+	[-copyFromLocal [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-copyToLocal [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] [-e] [-s] <path> ...]
+	[-cp [-f] [-p | -p[topax]] [-d] [-t <thread count>] [-q <thread pool queue size>] <src> ... <dst>]
+	[-createSnapshot <snapshotDir> [<snapshotName>]]
+	[-deleteSnapshot <snapshotDir> <snapshotName>]
+	[-df [-h] [<path> ...]]
+	[-du [-s] [-h] [-v] [-x] <path> ...]
+	[-expunge [-immediate] [-fs <path>]]
+	[-find <path> ... <expression> ...]
+	[-get [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-getfacl [-R] <path>]
+	[-getfattr [-R] {-n name | -d} [-e en] <path>]
+	[-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+	[-head <file>]
+	[-help [cmd ...]]
+	[-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [-e] [<path> ...]]
+	[-mkdir [-p] <path> ...]
+	[-moveFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+	[-moveToLocal <src> <localdst>]
+	[-mv <src> ... <dst>]
+	[-put [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-renameSnapshot <snapshotDir> <oldName> <newName>]
+	[-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+	[-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+	[-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+	[-setfattr {-n name [-v value] | -x name} <path>]
+	[-setrep [-R] [-w] <rep> <path> ...]
+	[-stat [format] <path> ...]
+	[-tail [-f] [-s <sleep interval>] <file>]
+	[-test -[defswrz] <path>]
+	[-text [-ignoreCrc] <src> ...]
+	[-touch [-a] [-m] [-t TIMESTAMP (yyyyMMdd:HHmmss) ] [-c] <path> ...]
+	[-touchz <path> ...]
+	[-truncate [-w] <length> <path> ...]
+	[-usage [cmd ...]]
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ cd . .
+bash: cd: too many arguments
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs put ./Input/Input.txt/ /MaxTemperature_a/Input
+put: Unknown command
+Did you mean -put?  This command begins with a dash.
+Usage: hadoop fs [generic options]
+	[-appendToFile [-n] <localsrc> ... <dst>]
+	[-cat [-ignoreCrc] <src> ...]
+	[-checksum [-v] <src> ...]
+	[-chgrp [-R] GROUP PATH...]
+	[-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+	[-chown [-R] [OWNER][:[GROUP]] PATH...]
+	[-concat <target path> <src path> <src path> ...]
+	[-copyFromLocal [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-copyToLocal [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] [-e] [-s] <path> ...]
+	[-cp [-f] [-p | -p[topax]] [-d] [-t <thread count>] [-q <thread pool queue size>] <src> ... <dst>]
+	[-createSnapshot <snapshotDir> [<snapshotName>]]
+	[-deleteSnapshot <snapshotDir> <snapshotName>]
+	[-df [-h] [<path> ...]]
+	[-du [-s] [-h] [-v] [-x] <path> ...]
+	[-expunge [-immediate] [-fs <path>]]
+	[-find <path> ... <expression> ...]
+	[-get [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-getfacl [-R] <path>]
+	[-getfattr [-R] {-n name | -d} [-e en] <path>]
+	[-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+	[-head <file>]
+	[-help [cmd ...]]
+	[-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [-e] [<path> ...]]
+	[-mkdir [-p] <path> ...]
+	[-moveFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+	[-moveToLocal <src> <localdst>]
+	[-mv <src> ... <dst>]
+	[-put [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-renameSnapshot <snapshotDir> <oldName> <newName>]
+	[-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+	[-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+	[-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+	[-setfattr {-n name [-v value] | -x name} <path>]
+	[-setrep [-R] [-w] <rep> <path> ...]
+	[-stat [format] <path> ...]
+	[-tail [-f] [-s <sleep interval>] <file>]
+	[-test -[defswrz] <path>]
+	[-text [-ignoreCrc] <src> ...]
+	[-touch [-a] [-m] [-t TIMESTAMP (yyyyMMdd:HHmmss) ] [-c] <path> ...]
+	[-touchz <path> ...]
+	[-truncate [-w] <length> <path> ...]
+	[-usage [cmd ...]]
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -put ./Input/Input.txt/ /MaxTemperature_a/Input
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 export PATH=$JAVA_HOME/bin:$PATH
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ javac -classpath $HADOOP_CLASSPATH -d . MaxTemperature_a.java
+javac: file not found: MaxTemperature_a.java
+Usage: javac <options> <source files>
+use -help for a list of possible options
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ javac -classpath $HADOOP_CLASSPATH -d . MaxTemperature.java
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ jar -cvf MaxTemperature.jar -C . .
+added manifest
+adding: Input/(in = 0) (out= 0)(stored 0%)
+adding: Input/Input.txt(in = 97) (out= 53)(deflated 45%)
+adding: MaxTemperature$TemperatureReducer.class(in = 1847) (out= 782)(deflated 57%)
+adding: MaxTemperature.java(in = 2816) (out= 862)(deflated 69%)
+adding: MaxTemperature$TemperatureMapper.class(in = 1952) (out= 831)(deflated 57%)
+adding: MaxTemperature.class(in = 1857) (out= 975)(deflated 47%)
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ jar tf MaxTemperature.jar
+META-INF/
+META-INF/MANIFEST.MF
+Input/
+Input/Input.txt
+MaxTemperature$TemperatureReducer.class
+MaxTemperature.java
+MaxTemperature$TemperatureMapper.class
+MaxTemperature.class
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop jar MaxTemperature.jar MaxTemperature /MaxTemperature/Input /MaxTemperature/Output
+2025-03-24 14:54:50,356 INFO impl.MetricsConfig: Loaded properties from hadoop-metrics2.properties
+2025-03-24 14:54:50,402 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+2025-03-24 14:54:50,402 INFO impl.MetricsSystemImpl: JobTracker metrics system started
+2025-03-24 14:54:50,512 INFO mapreduce.JobSubmitter: Cleaning up the staging area file:/tmp/hadoop/mapred/staging/hadoop1709413236/.staging/job_local1709413236_0001
+Exception in thread "main" org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: hdfs://localhost:9000/MaxTemperature/Input
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:340)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.listStatus(FileInputFormat.java:279)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.getSplits(FileInputFormat.java:404)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeNewSplits(JobSubmitter.java:310)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeSplits(JobSubmitter.java:327)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:200)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1678)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1675)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1675)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1696)
+	at MaxTemperature.main(MaxTemperature.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:328)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:241)
+Caused by: java.io.IOException: Input path does not exist: hdfs://localhost:9000/MaxTemperature/Input
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:313)
+	... 19 more
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -cat /MaxTemperature/Output/part-r-00000
+cat: `/MaxTemperature/Output/part-r-00000': No such file or directory
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop jar MaxTemperature.jar MaxTemperature /MaxTemperature/Input /MaxTemperature_a/Output
+2025-03-24 14:58:05,830 INFO impl.MetricsConfig: Loaded properties from hadoop-metrics2.properties
+2025-03-24 14:58:05,875 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+2025-03-24 14:58:05,875 INFO impl.MetricsSystemImpl: JobTracker metrics system started
+2025-03-24 14:58:05,985 INFO mapreduce.JobSubmitter: Cleaning up the staging area file:/tmp/hadoop/mapred/staging/hadoop1943357712/.staging/job_local1943357712_0001
+Exception in thread "main" org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: hdfs://localhost:9000/MaxTemperature/Input
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:340)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.listStatus(FileInputFormat.java:279)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.getSplits(FileInputFormat.java:404)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeNewSplits(JobSubmitter.java:310)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeSplits(JobSubmitter.java:327)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:200)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1678)
+	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1675)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1899)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1675)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1696)
+	at MaxTemperature.main(MaxTemperature.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:328)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:241)
+Caused by: java.io.IOException: Input path does not exist: hdfs://localhost:9000/MaxTemperature/Input
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:313)
+	... 19 more
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop jar MaxTemperature.jar MaxTemperature /MaxTemperature_a/Input /MaxTemperature_a/Output
+2025-03-24 15:00:12,901 INFO impl.MetricsConfig: Loaded properties from hadoop-metrics2.properties
+2025-03-24 15:00:12,945 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+2025-03-24 15:00:12,945 INFO impl.MetricsSystemImpl: JobTracker metrics system started
+2025-03-24 15:00:13,081 INFO input.FileInputFormat: Total input files to process : 1
+2025-03-24 15:00:13,091 INFO mapreduce.JobSubmitter: number of splits:1
+2025-03-24 15:00:13,136 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local2010141517_0001
+2025-03-24 15:00:13,136 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2025-03-24 15:00:13,196 INFO mapreduce.Job: The url to track the job: http://localhost:8080/
+2025-03-24 15:00:13,196 INFO mapreduce.Job: Running job: job_local2010141517_0001
+2025-03-24 15:00:13,197 INFO mapred.LocalJobRunner: OutputCommitter set in config null
+2025-03-24 15:00:13,200 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2025-03-24 15:00:13,200 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-24 15:00:13,200 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-24 15:00:13,201 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+2025-03-24 15:00:13,233 INFO mapred.LocalJobRunner: Waiting for map tasks
+2025-03-24 15:00:13,233 INFO mapred.LocalJobRunner: Starting task: attempt_local2010141517_0001_m_000000_0
+2025-03-24 15:00:13,244 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2025-03-24 15:00:13,244 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-24 15:00:13,244 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-24 15:00:13,251 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2025-03-24 15:00:13,253 INFO mapred.MapTask: Processing split: hdfs://localhost:9000/MaxTemperature_a/Input/Input.txt:0+97
+2025-03-24 15:00:13,289 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2025-03-24 15:00:13,289 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2025-03-24 15:00:13,289 INFO mapred.MapTask: soft limit at 83886080
+2025-03-24 15:00:13,289 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2025-03-24 15:00:13,289 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+2025-03-24 15:00:13,292 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+2025-03-24 15:00:13,409 INFO mapred.LocalJobRunner: 
+2025-03-24 15:00:13,410 INFO mapred.MapTask: Starting flush of map output
+2025-03-24 15:00:13,418 INFO mapred.Task: Task:attempt_local2010141517_0001_m_000000_0 is done. And is in the process of committing
+2025-03-24 15:00:13,420 INFO mapred.LocalJobRunner: map
+2025-03-24 15:00:13,420 INFO mapred.Task: Task 'attempt_local2010141517_0001_m_000000_0' done.
+2025-03-24 15:00:13,423 INFO mapred.Task: Final Counters for attempt_local2010141517_0001_m_000000_0: Counters: 23
+	File System Counters
+		FILE: Number of bytes read=4821
+		FILE: Number of bytes written=645878
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=97
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=5
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=1
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=13
+		Map output records=0
+		Map output bytes=0
+		Map output materialized bytes=6
+		Input split bytes=119
+		Combine input records=0
+		Spilled Records=0
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=67
+		Total committed heap usage (bytes)=659554304
+	File Input Format Counters 
+		Bytes Read=97
+2025-03-24 15:00:13,423 INFO mapred.LocalJobRunner: Finishing task: attempt_local2010141517_0001_m_000000_0
+2025-03-24 15:00:13,423 INFO mapred.LocalJobRunner: map task executor complete.
+2025-03-24 15:00:13,425 INFO mapred.LocalJobRunner: Waiting for reduce tasks
+2025-03-24 15:00:13,425 INFO mapred.LocalJobRunner: Starting task: attempt_local2010141517_0001_r_000000_0
+2025-03-24 15:00:13,429 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2025-03-24 15:00:13,429 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-24 15:00:13,429 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-24 15:00:13,430 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2025-03-24 15:00:13,431 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@26075685
+2025-03-24 15:00:13,432 WARN impl.MetricsSystemImpl: JobTracker metrics system already initialized!
+2025-03-24 15:00:13,439 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=2560203008, maxSingleShuffleLimit=640050752, mergeThreshold=1689734016, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+2025-03-24 15:00:13,440 INFO reduce.EventFetcher: attempt_local2010141517_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+2025-03-24 15:00:13,453 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local2010141517_0001_m_000000_0 decomp: 2 len: 6 to MEMORY
+2025-03-24 15:00:13,455 INFO reduce.InMemoryMapOutput: Read 2 bytes from map-output for attempt_local2010141517_0001_m_000000_0
+2025-03-24 15:00:13,455 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 2, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->2
+2025-03-24 15:00:13,456 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning
+2025-03-24 15:00:13,456 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2025-03-24 15:00:13,456 INFO reduce.MergeManagerImpl: finalMerge called with 1 in-memory map-outputs and 0 on-disk map-outputs
+2025-03-24 15:00:13,459 INFO mapred.Merger: Merging 1 sorted segments
+2025-03-24 15:00:13,459 INFO mapred.Merger: Down to the last merge-pass, with 0 segments left of total size: 0 bytes
+2025-03-24 15:00:13,459 INFO reduce.MergeManagerImpl: Merged 1 segments, 2 bytes to disk to satisfy reduce memory limit
+2025-03-24 15:00:13,460 INFO reduce.MergeManagerImpl: Merging 1 files, 6 bytes from disk
+2025-03-24 15:00:13,460 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+2025-03-24 15:00:13,460 INFO mapred.Merger: Merging 1 sorted segments
+2025-03-24 15:00:13,460 INFO mapred.Merger: Down to the last merge-pass, with 0 segments left of total size: 0 bytes
+2025-03-24 15:00:13,460 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2025-03-24 15:00:13,484 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+2025-03-24 15:00:13,490 INFO mapred.Task: Task:attempt_local2010141517_0001_r_000000_0 is done. And is in the process of committing
+2025-03-24 15:00:13,491 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2025-03-24 15:00:13,491 INFO mapred.Task: Task attempt_local2010141517_0001_r_000000_0 is allowed to commit now
+2025-03-24 15:00:13,495 INFO output.FileOutputCommitter: Saved output of task 'attempt_local2010141517_0001_r_000000_0' to hdfs://localhost:9000/MaxTemperature_a/Output
+2025-03-24 15:00:13,496 INFO mapred.LocalJobRunner: reduce > reduce
+2025-03-24 15:00:13,496 INFO mapred.Task: Task 'attempt_local2010141517_0001_r_000000_0' done.
+2025-03-24 15:00:13,496 INFO mapred.Task: Final Counters for attempt_local2010141517_0001_r_000000_0: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=4865
+		FILE: Number of bytes written=645884
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=97
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=10
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=3
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=0
+		Reduce shuffle bytes=6
+		Reduce input records=0
+		Reduce output records=0
+		Spilled Records=0
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=0
+		Total committed heap usage (bytes)=659554304
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Output Format Counters 
+		Bytes Written=0
+2025-03-24 15:00:13,496 INFO mapred.LocalJobRunner: Finishing task: attempt_local2010141517_0001_r_000000_0
+2025-03-24 15:00:13,496 INFO mapred.LocalJobRunner: reduce task executor complete.
+2025-03-24 15:00:14,199 INFO mapreduce.Job: Job job_local2010141517_0001 running in uber mode : false
+2025-03-24 15:00:14,201 INFO mapreduce.Job:  map 100% reduce 100%
+2025-03-24 15:00:14,203 INFO mapreduce.Job: Job job_local2010141517_0001 completed successfully
+2025-03-24 15:00:14,214 INFO mapreduce.Job: Counters: 36
+	File System Counters
+		FILE: Number of bytes read=9686
+		FILE: Number of bytes written=1291762
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=194
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=15
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=4
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=13
+		Map output records=0
+		Map output bytes=0
+		Map output materialized bytes=6
+		Input split bytes=119
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=0
+		Reduce shuffle bytes=6
+		Reduce input records=0
+		Reduce output records=0
+		Spilled Records=0
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=67
+		Total committed heap usage (bytes)=1319108608
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=97
+	File Output Format Counters 
+		Bytes Written=0
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -cat /MaxTemperature_a/Output/part-r-00000
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ export HADOOP_CLASSPATH=$(hadoop classpath)
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -mkdir /Max_a
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -mkdir /Max_a/Input
+hadoop@sahyadri:~/Desktop/4SF22IS012A$  hadoop fs -put Input.csv /Max_a/Input/
+put: `Input.csv': No such file or directory
+hadoop@sahyadri:~/Desktop/4SF22IS012A$  hadoop fs -put Input.txt /Max_a/Input/
+put: `Input.txt': No such file or directory
+hadoop@sahyadri:~/Desktop/4SF22IS012A$  hadoop fs -put Input.csv /Max_a/Input/
+put: `Input.csv': No such file or directory
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ cd . .
+bash: cd: too many arguments
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ cd ..
+hadoop@sahyadri:~/Desktop$ hadoop fs -put ./4SF22IS012A/Input/Input.csv/ /Max_a/Input
+hadoop@sahyadri:~/Desktop$ cd 4SF22IS012A
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 export PATH=$JAVA_HOME/bin:$PATH
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ javac -classpath $HADOOP_CLASSPATH -d . MaxTemperature.java
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ jar -cvf maxi.jar -C . .
+added manifest
+adding: MaxTemperature.jar(in = 4649) (out= 4025)(deflated 13%)
+adding: Input/(in = 0) (out= 0)(stored 0%)
+adding: Input/Input.csv(in = 97) (out= 52)(deflated 46%)
+adding: MaxTemperature$TemperatureReducer.class(in = 1847) (out= 782)(deflated 57%)
+adding: MaxTemperature.java(in = 2816) (out= 862)(deflated 69%)
+adding: MaxTemperature$TemperatureMapper.class(in = 1952) (out= 831)(deflated 57%)
+adding: MaxTemperature.class(in = 1857) (out= 975)(deflated 47%)
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ jar tf maxi.jar
+META-INF/
+META-INF/MANIFEST.MF
+MaxTemperature.jar
+Input/
+Input/Input.csv
+MaxTemperature$TemperatureReducer.class
+MaxTemperature.java
+MaxTemperature$TemperatureMapper.class
+MaxTemperature.class
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop jar maxi.jar MaxTemperature /Max_a/Input /Max_a/Input/Output
+2025-03-24 15:13:58,279 INFO impl.MetricsConfig: Loaded properties from hadoop-metrics2.properties
+2025-03-24 15:13:58,327 INFO impl.MetricsSystemImpl: Scheduled Metric snapshot period at 10 second(s).
+2025-03-24 15:13:58,327 INFO impl.MetricsSystemImpl: JobTracker metrics system started
+2025-03-24 15:13:58,465 INFO input.FileInputFormat: Total input files to process : 1
+2025-03-24 15:13:58,475 INFO mapreduce.JobSubmitter: number of splits:1
+2025-03-24 15:13:58,520 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local361603451_0001
+2025-03-24 15:13:58,520 INFO mapreduce.JobSubmitter: Executing with tokens: []
+2025-03-24 15:13:58,581 INFO mapreduce.Job: The url to track the job: http://localhost:8080/
+2025-03-24 15:13:58,581 INFO mapreduce.Job: Running job: job_local361603451_0001
+2025-03-24 15:13:58,582 INFO mapred.LocalJobRunner: OutputCommitter set in config null
+2025-03-24 15:13:58,585 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2025-03-24 15:13:58,586 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-24 15:13:58,586 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-24 15:13:58,586 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+2025-03-24 15:13:58,618 INFO mapred.LocalJobRunner: Waiting for map tasks
+2025-03-24 15:13:58,619 INFO mapred.LocalJobRunner: Starting task: attempt_local361603451_0001_m_000000_0
+2025-03-24 15:13:58,631 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2025-03-24 15:13:58,631 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-24 15:13:58,631 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-24 15:13:58,643 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2025-03-24 15:13:58,646 INFO mapred.MapTask: Processing split: hdfs://localhost:9000/Max_a/Input/Input.csv:0+97
+2025-03-24 15:13:58,662 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)
+2025-03-24 15:13:58,663 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100
+2025-03-24 15:13:58,663 INFO mapred.MapTask: soft limit at 83886080
+2025-03-24 15:13:58,663 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600
+2025-03-24 15:13:58,663 INFO mapred.MapTask: kvstart = 26214396; length = 6553600
+2025-03-24 15:13:58,664 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer
+2025-03-24 15:13:58,710 INFO mapred.LocalJobRunner: 
+2025-03-24 15:13:58,711 INFO mapred.MapTask: Starting flush of map output
+2025-03-24 15:13:58,711 INFO mapred.MapTask: Spilling map output
+2025-03-24 15:13:58,711 INFO mapred.MapTask: bufstart = 0; bufend = 108; bufvoid = 104857600
+2025-03-24 15:13:58,711 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26214352(104857408); length = 45/6553600
+2025-03-24 15:13:58,715 INFO mapred.MapTask: Finished spill 0
+2025-03-24 15:13:58,719 INFO mapred.Task: Task:attempt_local361603451_0001_m_000000_0 is done. And is in the process of committing
+2025-03-24 15:13:58,721 INFO mapred.LocalJobRunner: map
+2025-03-24 15:13:58,721 INFO mapred.Task: Task 'attempt_local361603451_0001_m_000000_0' done.
+2025-03-24 15:13:58,725 INFO mapred.Task: Final Counters for attempt_local361603451_0001_m_000000_0: Counters: 23
+	File System Counters
+		FILE: Number of bytes read=8962
+		FILE: Number of bytes written=647067
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=97
+		HDFS: Number of bytes written=0
+		HDFS: Number of read operations=5
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=1
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=13
+		Map output records=12
+		Map output bytes=108
+		Map output materialized bytes=138
+		Input split bytes=108
+		Combine input records=0
+		Spilled Records=12
+		Failed Shuffles=0
+		Merged Map outputs=0
+		GC time elapsed (ms)=3
+		Total committed heap usage (bytes)=308281344
+	File Input Format Counters 
+		Bytes Read=97
+2025-03-24 15:13:58,725 INFO mapred.LocalJobRunner: Finishing task: attempt_local361603451_0001_m_000000_0
+2025-03-24 15:13:58,725 INFO mapred.LocalJobRunner: map task executor complete.
+2025-03-24 15:13:58,726 INFO mapred.LocalJobRunner: Waiting for reduce tasks
+2025-03-24 15:13:58,727 INFO mapred.LocalJobRunner: Starting task: attempt_local361603451_0001_r_000000_0
+2025-03-24 15:13:58,731 INFO output.PathOutputCommitterFactory: No output committer factory defined, defaulting to FileOutputCommitterFactory
+2025-03-24 15:13:58,732 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 2
+2025-03-24 15:13:58,732 INFO output.FileOutputCommitter: FileOutputCommitter skip cleanup _temporary folders under output directory:false, ignore cleanup failures: false
+2025-03-24 15:13:58,732 INFO mapred.Task:  Using ResourceCalculatorProcessTree : [ ]
+2025-03-24 15:13:58,733 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@3869013b
+2025-03-24 15:13:58,734 WARN impl.MetricsSystemImpl: JobTracker metrics system already initialized!
+2025-03-24 15:13:58,744 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=2560203008, maxSingleShuffleLimit=640050752, mergeThreshold=1689734016, ioSortFactor=10, memToMemMergeOutputsThreshold=10
+2025-03-24 15:13:58,745 INFO reduce.EventFetcher: attempt_local361603451_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events
+2025-03-24 15:13:58,759 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local361603451_0001_m_000000_0 decomp: 134 len: 138 to MEMORY
+2025-03-24 15:13:58,761 INFO reduce.InMemoryMapOutput: Read 134 bytes from map-output for attempt_local361603451_0001_m_000000_0
+2025-03-24 15:13:58,761 INFO reduce.MergeManagerImpl: closeInMemoryFile -> map-output of size: 134, inMemoryMapOutputs.size() -> 1, commitMemory -> 0, usedMemory ->134
+2025-03-24 15:13:58,762 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning
+2025-03-24 15:13:58,762 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2025-03-24 15:13:58,762 INFO reduce.MergeManagerImpl: finalMerge called with 1 in-memory map-outputs and 0 on-disk map-outputs
+2025-03-24 15:13:58,765 INFO mapred.Merger: Merging 1 sorted segments
+2025-03-24 15:13:58,765 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 127 bytes
+2025-03-24 15:13:58,766 INFO reduce.MergeManagerImpl: Merged 1 segments, 134 bytes to disk to satisfy reduce memory limit
+2025-03-24 15:13:58,766 INFO reduce.MergeManagerImpl: Merging 1 files, 138 bytes from disk
+2025-03-24 15:13:58,766 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce
+2025-03-24 15:13:58,766 INFO mapred.Merger: Merging 1 sorted segments
+2025-03-24 15:13:58,767 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 127 bytes
+2025-03-24 15:13:58,767 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2025-03-24 15:13:58,791 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords
+2025-03-24 15:13:58,826 INFO mapred.Task: Task:attempt_local361603451_0001_r_000000_0 is done. And is in the process of committing
+2025-03-24 15:13:58,828 INFO mapred.LocalJobRunner: 1 / 1 copied.
+2025-03-24 15:13:58,828 INFO mapred.Task: Task attempt_local361603451_0001_r_000000_0 is allowed to commit now
+2025-03-24 15:13:58,837 INFO output.FileOutputCommitter: Saved output of task 'attempt_local361603451_0001_r_000000_0' to hdfs://localhost:9000/Max_a/Input/Output
+2025-03-24 15:13:58,838 INFO mapred.LocalJobRunner: reduce > reduce
+2025-03-24 15:13:58,838 INFO mapred.Task: Task 'attempt_local361603451_0001_r_000000_0' done.
+2025-03-24 15:13:58,838 INFO mapred.Task: Final Counters for attempt_local361603451_0001_r_000000_0: Counters: 30
+	File System Counters
+		FILE: Number of bytes read=9270
+		FILE: Number of bytes written=647205
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=97
+		HDFS: Number of bytes written=48
+		HDFS: Number of read operations=10
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=3
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=6
+		Reduce shuffle bytes=138
+		Reduce input records=12
+		Reduce output records=6
+		Spilled Records=12
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=0
+		Total committed heap usage (bytes)=308281344
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Output Format Counters 
+		Bytes Written=48
+2025-03-24 15:13:58,839 INFO mapred.LocalJobRunner: Finishing task: attempt_local361603451_0001_r_000000_0
+2025-03-24 15:13:58,839 INFO mapred.LocalJobRunner: reduce task executor complete.
+2025-03-24 15:13:59,584 INFO mapreduce.Job: Job job_local361603451_0001 running in uber mode : false
+2025-03-24 15:13:59,586 INFO mapreduce.Job:  map 100% reduce 100%
+2025-03-24 15:13:59,588 INFO mapreduce.Job: Job job_local361603451_0001 completed successfully
+2025-03-24 15:13:59,600 INFO mapreduce.Job: Counters: 36
+	File System Counters
+		FILE: Number of bytes read=18232
+		FILE: Number of bytes written=1294272
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=194
+		HDFS: Number of bytes written=48
+		HDFS: Number of read operations=15
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=4
+		HDFS: Number of bytes read erasure-coded=0
+	Map-Reduce Framework
+		Map input records=13
+		Map output records=12
+		Map output bytes=108
+		Map output materialized bytes=138
+		Input split bytes=108
+		Combine input records=0
+		Combine output records=0
+		Reduce input groups=6
+		Reduce shuffle bytes=138
+		Reduce input records=12
+		Reduce output records=6
+		Spilled Records=24
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=3
+		Total committed heap usage (bytes)=616562688
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=97
+	File Output Format Counters 
+		Bytes Written=48
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -cat/max_a/Input/Output/part-r-00000
+-cat/max_a/Input/Output/part-r-00000: Unknown command
+Usage: hadoop fs [generic options]
+	[-appendToFile [-n] <localsrc> ... <dst>]
+	[-cat [-ignoreCrc] <src> ...]
+	[-checksum [-v] <src> ...]
+	[-chgrp [-R] GROUP PATH...]
+	[-chmod [-R] <MODE[,MODE]... | OCTALMODE> PATH...]
+	[-chown [-R] [OWNER][:[GROUP]] PATH...]
+	[-concat <target path> <src path> <src path> ...]
+	[-copyFromLocal [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-copyToLocal [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-count [-q] [-h] [-v] [-t [<storage type>]] [-u] [-x] [-e] [-s] <path> ...]
+	[-cp [-f] [-p | -p[topax]] [-d] [-t <thread count>] [-q <thread pool queue size>] <src> ... <dst>]
+	[-createSnapshot <snapshotDir> [<snapshotName>]]
+	[-deleteSnapshot <snapshotDir> <snapshotName>]
+	[-df [-h] [<path> ...]]
+	[-du [-s] [-h] [-v] [-x] <path> ...]
+	[-expunge [-immediate] [-fs <path>]]
+	[-find <path> ... <expression> ...]
+	[-get [-f] [-p] [-crc] [-ignoreCrc] [-t <thread count>] [-q <thread pool queue size>] <src> ... <localdst>]
+	[-getfacl [-R] <path>]
+	[-getfattr [-R] {-n name | -d} [-e en] <path>]
+	[-getmerge [-nl] [-skip-empty-file] <src> <localdst>]
+	[-head <file>]
+	[-help [cmd ...]]
+	[-ls [-C] [-d] [-h] [-q] [-R] [-t] [-S] [-r] [-u] [-e] [<path> ...]]
+	[-mkdir [-p] <path> ...]
+	[-moveFromLocal [-f] [-p] [-l] [-d] <localsrc> ... <dst>]
+	[-moveToLocal <src> <localdst>]
+	[-mv <src> ... <dst>]
+	[-put [-f] [-p] [-l] [-d] [-t <thread count>] [-q <thread pool queue size>] <localsrc> ... <dst>]
+	[-renameSnapshot <snapshotDir> <oldName> <newName>]
+	[-rm [-f] [-r|-R] [-skipTrash] [-safely] <src> ...]
+	[-rmdir [--ignore-fail-on-non-empty] <dir> ...]
+	[-setfacl [-R] [{-b|-k} {-m|-x <acl_spec>} <path>]|[--set <acl_spec> <path>]]
+	[-setfattr {-n name [-v value] | -x name} <path>]
+	[-setrep [-R] [-w] <rep> <path> ...]
+	[-stat [format] <path> ...]
+	[-tail [-f] [-s <sleep interval>] <file>]
+	[-test -[defswrz] <path>]
+	[-text [-ignoreCrc] <src> ...]
+	[-touch [-a] [-m] [-t TIMESTAMP (yyyyMMdd:HHmmss) ] [-c] <path> ...]
+	[-touchz <path> ...]
+	[-truncate [-w] <length> <path> ...]
+	[-usage [cmd ...]]
+
+Generic options supported are:
+-conf <configuration file>        specify an application configuration file
+-D <property=value>               define a value for a given property
+-fs <file:///|hdfs://namenode:port> specify default filesystem URL to use, overrides 'fs.defaultFS' property from configurations.
+-jt <local|resourcemanager:port>  specify a ResourceManager
+-files <file1,...>                specify a comma-separated list of files to be copied to the map reduce cluster
+-libjars <jar1,...>               specify a comma-separated list of jar files to be included in the classpath
+-archives <archive1,...>          specify a comma-separated list of archives to be unarchived on the compute machines
+
+The general command line syntax is:
+command [genericOptions] [commandOptions]
+
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -cat /max_a/Input/Output/part-r-00000
+cat: `/max_a/Input/Output/part-r-00000': No such file or directory
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ hadoop fs -cat /Max_a/Input/Output/part-r-00000
+2020	34
+2021	21
+2022	16
+2023	45
+2024	29
+2025	34
+hadoop@sahyadri:~/Desktop/4SF22IS012A$ 
+
+
