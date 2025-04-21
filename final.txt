@@ -1,0 +1,29 @@
+start-all.sh
+
+jps
+
+export HADOOP_CLASSPATH=$(hadoop classpath)
+
+hadoop fs -mkdir /Max_a
+hadoop fs -mkdir /Max_a/Input
+
+cd . .
+
+
+
+hadoop fs -put ./Input/Input.csv /Max_a/Input/
+
+cd 
+
+
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 export PATH=$JAVA_HOME/bin:$PATH
+
+javac -classpath $(HADOOP_CLASSPATH) -d . MapReduce.java
+
+jar -cvf mapreduce.jar -C . .
+
+jar tf mapreduce.jar
+
+hadoop jar mapreduce.jar MapReduce /Max_a/Input /Max_a/Input/Output
+
+hadoop fs -cat /Max_a/Input/Output/part-r-00000
